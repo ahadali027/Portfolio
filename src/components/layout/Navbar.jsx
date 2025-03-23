@@ -4,7 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   HiMoon, HiSun, HiMenu, HiX, HiHome, HiUser, HiCode, 
-  HiCollection, HiBriefcase, HiMail 
+  HiCollection, HiBriefcase, HiMail, HiDocumentDownload 
 } from 'react-icons/hi';
 
 const Navbar = () => {
@@ -221,13 +221,22 @@ const Navbar = () => {
           </motion.button>
           
           {/* Contact Button (Show only on larger screens) */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-2">
             <Link
               to="/contact"
               className="py-1.5 px-4 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white text-sm font-medium rounded-md shadow-md hover:shadow-lg transition-all"
             >
               Get in Touch
             </Link>
+            <a
+              href="/Ahad OG 02 CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-1.5 px-4 flex items-center bg-white dark:bg-dark-200 border border-primary-500 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 text-sm font-medium rounded-md shadow-md hover:shadow-lg transition-all"
+            >
+              <HiDocumentDownload className="mr-1.5" size={16} />
+              CV
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -312,14 +321,26 @@ const Navbar = () => {
                 
                 {/* Contact button in mobile menu */}
                 <div className="px-4 py-4 bg-gradient-to-b from-transparent to-gray-50 dark:to-dark-300/30">
-                  <Link
-                    to="/contact"
-                    className="w-full py-2.5 flex justify-center items-center bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-medium rounded-md shadow-md"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <HiMail className="mr-2" />
-                    Get in Touch
-                  </Link>
+                  <div className="flex gap-2">
+                    <Link
+                      to="/contact"
+                      className="flex-1 py-2.5 flex justify-center items-center bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-medium rounded-md shadow-md"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <HiMail className="mr-2" />
+                      Get in Touch
+                    </Link>
+                    <a
+                      href="/Ahad OG 02 CV.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2.5 flex justify-center items-center bg-white dark:bg-dark-200 border border-primary-500 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-medium rounded-md shadow-md"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <HiDocumentDownload className="mr-2" />
+                      CV
+                    </a>
+                  </div>
                 </div>
               </motion.nav>
             </div>
