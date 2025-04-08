@@ -6,6 +6,7 @@ import {
   HiMoon, HiSun, HiMenu, HiX, HiHome, HiUser, HiCode, 
   HiCollection, HiBriefcase, HiMail, HiDocumentDownload 
 } from 'react-icons/hi';
+import { FaGithub } from 'react-icons/fa';
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -23,6 +24,7 @@ const Navbar = () => {
     { name: 'Skills', path: '/skills', icon: <HiCode size={16} /> },
     { name: 'Projects', path: '/projects', icon: <HiCollection size={16} /> },
     { name: 'Experience', path: '/experience', icon: <HiBriefcase size={16} /> },
+    { name: 'GitHub', path: '/github', icon: <FaGithub size={16} /> },
     { name: 'Contact', path: '/contact', icon: <HiMail size={16} /> },
   ];
 
