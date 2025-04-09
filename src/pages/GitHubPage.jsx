@@ -15,7 +15,6 @@ const GitHubPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch user data
         const userResponse = await fetch('https://api.github.com/users/ahadali027');
         if (!userResponse.ok) {
           throw new Error('Failed to fetch user data');
@@ -23,7 +22,6 @@ const GitHubPage = () => {
         const userData = await userResponse.json();
         setUserData(userData);
 
-        // Fetch repositories
         const reposResponse = await fetch('https://api.github.com/users/ahadali027/repos?sort=updated&per_page=6');
         if (!reposResponse.ok) {
           throw new Error('Failed to fetch repositories');
@@ -31,7 +29,6 @@ const GitHubPage = () => {
         const reposData = await reposResponse.json();
         setRepos(reposData);
 
-        // Generate mock contribution data (since GitHub's API doesn't provide contribution graph data directly)
         generateMockContributionData();
       } catch (err) {
         setError(err.message);
@@ -43,14 +40,11 @@ const GitHubPage = () => {
     fetchData();
   }, []);
 
-  // Generate mock contribution data (since GitHub's API doesn't provide contribution graph data directly)
   const generateMockContributionData = () => {
     const data = [];
-    // Generate data for last 12 months
     const now = new Date();
     for (let i = 0; i < 12; i++) {
       const month = new Date(now.getFullYear(), now.getMonth() - i, 1);
-      // Random contribution count between 5 and 30
       const count = Math.floor(Math.random() * 25) + 5;
       data.push({
         month: month.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
@@ -98,7 +92,6 @@ const GitHubPage = () => {
         />
 
         <div className="max-w-4xl mx-auto mt-10">
-          {/* Profile Card */}
           <div className="bg-white dark:bg-dark-200 rounded-xl shadow-lg overflow-hidden mb-10">
             <div className="p-8">
               <div className="flex flex-col md:flex-row items-center gap-8">
@@ -115,7 +108,6 @@ const GitHubPage = () => {
                     {userData.bio || 'MERN Stack Developer'}
                   </p>
                   
-                  {/* User Stats */}
                   <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-6">
                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                       <FaUserFriends />
@@ -131,7 +123,6 @@ const GitHubPage = () => {
                     </div>
                   </div>
 
-                  {/* Additional Info */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                     {userData.location && (
                       <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
@@ -168,12 +159,10 @@ const GitHubPage = () => {
             </div>
           </div>
 
-          {/* Contributions Section */}
           <div className="mb-12 bg-white dark:bg-dark-200 rounded-xl shadow-lg overflow-hidden">
             <div className="p-6 sm:p-8">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">Contribution Activity</h3>
               
-              {/* Contribution Graph */}
               <div className="mb-8">
                 <div className="flex items-end justify-between h-48 gap-1">
                   {contributionData.map((item, index) => (
@@ -211,7 +200,6 @@ const GitHubPage = () => {
             </div>
           </div>
 
-          {/* Recent Repositories */}
           <div className="mb-10">
             <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">Recent Repositories</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -263,7 +251,6 @@ const GitHubPage = () => {
             </div>
           </div>
 
-          {/* GitHub Link */}
           <div className="text-center">
             <Button
               href={userData.html_url}
