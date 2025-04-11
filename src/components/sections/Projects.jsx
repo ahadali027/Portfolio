@@ -16,7 +16,7 @@ const Projects = () => {
       id: 1,
       title: 'EduLearn LMS Platform',
       description: 'A comprehensive learning management system with course creation, enrollment, progress tracking, and interactive quizzes.',
-      image: 'https://via.placeholder.com/600x400/4F46E5/FFFFFF?text=LMS+Platform',
+      gradient: 'from-indigo-600 to-purple-600',
       category: 'lms',
       tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Socket.io'],
       links: {
@@ -28,7 +28,7 @@ const Projects = () => {
       id: 2,
       title: 'ShopSmart E-commerce',
       description: 'Full-featured e-commerce platform with product catalog, user authentication, shopping cart, and payment integration.',
-      image: 'https://via.placeholder.com/600x400/0EA5E9/FFFFFF?text=E-commerce+Platform',
+      gradient: 'from-blue-500 to-cyan-500',
       category: 'ecommerce',
       tags: ['React', 'Redux', 'Node.js', 'MongoDB', 'Stripe'],
       links: {
@@ -40,7 +40,7 @@ const Projects = () => {
       id: 3,
       title: 'Swift POS System',
       description: 'Point of sale system for retail businesses with inventory management, sales tracking, and reporting features.',
-      image: 'https://via.placeholder.com/600x400/10B981/FFFFFF?text=POS+System',
+      gradient: 'from-emerald-500 to-green-500',
       category: 'pos',
       tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Chart.js'],
       links: {
@@ -52,7 +52,7 @@ const Projects = () => {
       id: 4,
       title: 'CloudTask SaaS Application',
       description: 'Project management SaaS tool with task tracking, team collaboration, and analytics dashboard.',
-      image: 'https://via.placeholder.com/600x400/8B5CF6/FFFFFF?text=SaaS+Application',
+      gradient: 'from-purple-500 to-pink-500',
       category: 'saas',
       tags: ['React', 'Redux', 'Node.js', 'MongoDB', 'WebSockets'],
       links: {
@@ -64,7 +64,7 @@ const Projects = () => {
       id: 5,
       title: 'HealthTrack Portal',
       description: 'Healthcare patient management system with appointment scheduling, medical records, and patient portal.',
-      image: 'https://via.placeholder.com/600x400/EC4899/FFFFFF?text=Healthcare+Portal',
+      gradient: 'from-pink-500 to-rose-500',
       category: 'saas',
       tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Chart.js'],
       links: {
@@ -76,7 +76,7 @@ const Projects = () => {
       id: 6,
       title: 'Inventory Master',
       description: 'Advanced inventory management system for small businesses with barcode scanning and supplier management.',
-      image: 'https://via.placeholder.com/600x400/F59E0B/FFFFFF?text=Inventory+System',
+      gradient: 'from-amber-500 to-yellow-500',
       category: 'pos',
       tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Redux'],
       links: {
@@ -133,11 +133,9 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <Card key={project.id} className="overflow-hidden" delay={index}>
               <div className="relative overflow-hidden group">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-40 sm:h-44 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                <div className={`w-full h-40 sm:h-44 md:h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                  <h3 className="text-white text-xl sm:text-2xl font-bold text-center px-4">{project.title}</h3>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-3 sm:p-4 w-full">
                     <div className="flex gap-2 sm:gap-3 justify-end">

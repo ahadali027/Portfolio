@@ -4,8 +4,8 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 const SkillCard = ({ skill, index }) => {
   const renderStars = (level) => {
     const stars = [];
-    const fullStars = Math.floor(level);
-    const hasHalfStar = level % 1 !== 0;
+    const fullStars = Math.floor(level / 20);
+    const hasHalfStar = (level / 20) % 1 !== 0;
     
     for (let i = 1; i <= 5; i++) {
       if (i <= fullStars) {
@@ -36,7 +36,9 @@ const SkillCard = ({ skill, index }) => {
         <div className="relative z-10 p-6 sm:p-8 h-full flex flex-col">
           <div className="flex items-start justify-between mb-4 sm:mb-6">
             <div className="p-3 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-dark-100 dark:to-dark-300 shadow-md">
-              {skill.icon}
+              <span className="text-2xl font-bold" style={{ color: skill.color }}>
+                {skill.name.charAt(0)}
+              </span>
             </div>
             <div className="flex">
               {renderStars(skill.level)}
@@ -45,14 +47,9 @@ const SkillCard = ({ skill, index }) => {
           
           <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-800 dark:text-white">{skill.name}</h3>
           
-          <p className="text-sm text-gray-600 dark:text-gray-300 flex-grow mb-4">{skill.description}</p>
-          
           <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-            <span className="text-xs font-medium px-2.5 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full">
-              {skill.category.charAt(0).toUpperCase() + skill.category.slice(1)}
-            </span>
             <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-              {skill.level * 20}% Proficiency
+              {skill.level}% Proficiency
             </span>
           </div>
         </div>
